@@ -6,9 +6,14 @@ document.querySelector('#year').textContent = variableOne.getFullYear();
 //new stuff here
 
 function toggleMenu(){
-    document.getElementById("primaryNav").classList.toggle("open");
+    const primaryNav = document.getElementById("primaryNav");
+    const nav = primaryNav ? primaryNav.closest('nav') : null;
+    if (nav) nav.classList.toggle("open");
+    if (primaryNav) primaryNav.classList.toggle('open');
+    const btn = document.getElementById("hamburgerButton");
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
 }
 
-const x = document.getElementById("hamburgerButton")
-
-x.onclick = toggleMenu;
+const x = document.getElementById("hamburgerButton");
+if (x) x.addEventListener('click', toggleMenu);

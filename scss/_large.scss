@@ -5,18 +5,15 @@ header, nav, main, footer{
 
 /*Navigation stuff goes here*/
 
-Nav{
-button{display:none;}
-ul, ul.open{
-    margin-left: 2vw;
-    display:flex;
-    border: none;
-    li{
-        border:none;
-    }
-
-} //end ul
-
+nav {
+    button { display: none; }
+    ul, ul.open {
+        margin-left: 2vw;
+        display: flex;
+        justify-content: center; /* keep items centered on large screens */
+        border: none;
+        li { border: none; }
+    } //end ul
 
 } //end nav
 

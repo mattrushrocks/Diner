@@ -4,6 +4,7 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   height: 100%;
+  overflow-x: hidden;
 }
 
 /*---- apply a natural box layout model to all elements -------*/
@@ -11,10 +12,9 @@ html {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-}
 
-h1{
-  font-family: $secondaryFont;
+  /* header/company name uses $secondaryFont via .company-name; main h1 uses $defaultFont */
+
 }
 
 body {
@@ -22,85 +22,137 @@ body {
   font-family: $defaultFont;
   font-weight: $normalWeight;
   color: $fontColor;
+  background-color: #0a0a0a;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 #headerWrapper {
-background: white;
-  color: $secondaryColor;
+background: $secondaryColor;
+  color: $primaryColor;
+  border-bottom: 3px solid $primaryColor;
 }
 header {
   display: flex;
+  position: relative;
   align-items: center;
   padding: 1rem $gutter;
   gap: 8px;
-  h1 {
+  .logo {
+    img {
+      display: block;
+      width: 45px;
+      height: auto;
+    }
+  }
+  .company-name {
     display: block;
     margin: 0;
     font-size: 1.2rem;
-    font-weight: $normalWeight;
-
+    font-weight: $boldWeight;
+    color: $primaryColor;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: $secondaryFont;
   }
+}
+
+/* main page title */
+h1.page-title, main h1 {
+  font-family: $defaultFont;
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  color: $fontColor;
+  font-weight: $boldWeight;
 }
 
 /*Navigation stuff goes here*/
 
 #navWrapper {
-  background-color: $menuColor;
+  background-color: $secondaryColor;
+  border-bottom: 2px solid $primaryColor;
 }
 
 nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center the menu */
 
-  button{
+  /* hamburger button lives in the header so it scrolls with the page */
+  #hamburgerButton {
     padding: .5rem;
     background: transparent;
     border: none;
     font-size: 1.5rem;
-    color: rgba(255,255,255, 0.9);
+    color: $primaryColor;
+    position: absolute;
+    right: $gutter;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 60;
   }
 
+    /* No special repositioning when open; the hamburger is fixed in the header */
+
   ul {
-    display:none;
+    display: none;
     list-style-type: none;
     padding: 0;
     margin: 0;
-    border-top: solid 1px rgba(255,255,255, 0.3);
-    li {
-      border-bottom: solid 1px rgba(255,255,255, 0.3);
-
-      a {
-        display: block;
-        padding: 0.75rem;
-        color: black;
-        text-align: center;
-        text-decoration: none;
-        font-size: 1.3rem;
-        font-weight: $boldWeight;
-        &:hover {
-          background-color: darken($menuColor, 8%);
-          color: white;
-        }
-      }
-    }
-    li.active a {
-        color: white;
-        background-color: darken($menuColor, 12%);
-    }
+    border-top: solid 1px rgba(255,215,0, 0.3);
+    width: 100%;
+    max-width: 640px;
   }
+
   ul.open {
     display: block;
+    margin: 0 auto;
+    width: calc(100% - (#{$gutter} * 2));
   }
+
+  ul li {
+    border-bottom: solid 1px rgba(255,215,0, 0.3);
+
+    a {
+      display: block;
+      padding: 0.75rem;
+      color: $fontColor;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: $boldWeight;
+      text-transform: uppercase;
+      &:hover {
+        background-color: rgba(255,215,0, 0.1);
+        color: $primaryColor;
+      }
+    }
+  }
+
+  ul li.active a {
+    color: $primaryColor;
+    background-color: rgba(255,215,0, 0.15);
+  }
+
 }
 
 .allcards {
   padding: 0 $gutter;
   section {
-    border:1px solid rgb(202, 202, 202);
-    border-radius: 10px;
+    border: 2px solid $primaryColor;
+    border-radius: 12px;
     overflow: hidden;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    background-color: #2a2a2a;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(255, 215, 0, 0.1);
+    transition: all 0.3s ease;
     img{
       margin:0;
-      padding:0 0 1rem 0;
+      padding:0;
+      border-bottom: 2px solid $primaryColor;
     }
 
     h2, p {
@@ -108,10 +160,13 @@ nav {
       padding: 1rem $gutter;
     }
 h2 {
-  background-color:#ef4e8a;
-  color: white;
+  background-color: $primaryColor;
+  color: $secondaryColor;
   font-size: 1.5rem;
   text-align: center;
+  font-weight: $boldWeight;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 img {
   width:100%;
@@ -121,69 +176,108 @@ img {
 img.e2e{padding:0;}
 p {
   font-style: italic;
+  color: $fontColor;
+  background-color: rgba(255,215,0, 0.05);
 }
 a {
   display: block;
-  background-color: #fd9abf;
+  background-color: $primaryColor;
   padding: .75rem;
   text-align: center;
-  margin: 0 3rem 1rem 3rem;
-  border-radius: 5px;
-  color: black;
+  margin: 0 1rem 1rem 1rem;
+  border-radius: 8px;
+  color: $secondaryColor;
   text-decoration: none;
+  font-weight: $boldWeight;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  &:hover {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    transform: scale(1.05);
+  }
 }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(255, 215, 0, 0.3), inset 0 0 10px rgba(255, 215, 0, 0.15);
+    }
   }//end section
-}//end allcards}
+}//end allcards
 
 // begin the footer
 
 #footerWrapper {
-  background: black;
-  color: $footerColor;
+  background: $secondaryColor;
+  color: $fontColor;
+  border-top: 3px solid $primaryColor;
 }
+
+/* Footer layout and elements */
 footer {
-    padding: 0.5rem $gutter;
-    section a{
+  padding: 0.75rem $gutter;
+
+  .footer-container {
+    display: grid;
+    gap: $gutter;
+    grid-template-columns: 1fr;
+  }
+
+  section a {
     text-decoration: none;
-    color: #ef4e8a;
-    &:hover{
-      color: white;
+    color: $primaryColor;
+    &:hover {
+      color: lighten($primaryColor, 10%);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     }
-    }
-    section.contact{
-      p{
-        font-size: 1.2rem;
-        margin: .5rem;
-        ion-icon{
-          color: white;
-          padding-right: 2px;
-        }
-      }
-    } //end of contact
+  }
 
-    section.social{
-      display: flex;
+  section.contact {
+    p {
+      font-size: 1.05rem;
+      margin: 0.25rem 0;
+      ion-icon {
+        color: $primaryColor;
+        padding-right: 8px;
+      }
+    }
+  }
+
+  section.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      a{
-        display: block;
-        border: solid black 1px;
-        font-size: 2rem;
-        margin: .5rem;
-        padding: .5rem;
-        color:#ef4e8a;
-        &:hover{
-          color: white;
-        }
+      border: solid $primaryColor 2px;
+      font-size: 1.6rem;
+      margin: .25rem;
+      padding: .4rem;
+      color: $primaryColor;
+      background-color: rgba(255,215,0, 0.04);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      &:hover{
+        color: $secondaryColor;
+        background-color: $primaryColor;
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
       }
-    } //end of social
-
-    section.location{
-
-    } //end of location
-
-    p.legal{
-        margin: 0;
-        font-weight: $lightWeight;
-        text-align: center;
     }
+  }
+
+  section.location {
+    padding: 1rem 0;
+  }
+
+  p.legal{
+    margin: 0;
+    font-weight: $lightWeight;
+    text-align: center;
+    color: rgba(255, 215, 0, 0.7);
+    padding-top: 0.75rem;
+  }
 }
