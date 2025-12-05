@@ -17,6 +17,11 @@ nav {
 
 } //end nav
 
+/* The hamburger lives in the header (#hamburgerButton). Hide it on large screens */
+header {
+    #hamburgerButton { display: none; }
+}
+
 .allcards {
     section{
         flex-basis: calc(33.333% - (($gutter*2)/3))

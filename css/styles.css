@@ -601,6 +601,11 @@ footer p.legal {
   nav button {
     display: none;
   }
+  /* hide the header hamburger on large screens (button is inside header)
+     so the hamburger only shows on tablet/mobile */
+  header #hamburgerButton {
+    display: none;
+  }
   nav ul, nav ul.open {
     margin-left: 2vw;
     display: flex;
@@ -609,6 +614,10 @@ footer p.legal {
   }
   nav ul li, nav ul.open li {
     border: none;
+  }
+  /* The hamburger lives in the header (#hamburgerButton). Hide it on large screens */
+  header #hamburgerButton {
+    display: none;
   }
   .allcards section {
     flex-basis: calc(33.333% - 10.6666666667px);
