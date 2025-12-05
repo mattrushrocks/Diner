@@ -610,7 +610,7 @@ footer p.legal {
   nav ul li, nav ul.open li {
     border: none;
   }
-  /* The hamburger lives in the header (#hamburgerButton). Hide it on large screens */
+  /* The hamburger lives in the header (#hamburgerButton) Hide it on large screens */
   header #hamburgerButton {
     display: none;
   }
