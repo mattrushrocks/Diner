@@ -1,79 +1,189 @@
 /* Prevent adjustments of font size after orientation changes.  */
 html {
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
-    height: 100%;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  height: 100%;
 }
 
 /*---- apply a natural box layout model to all elements -------*/
 * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1{
+  font-family: $secondaryFont;
 }
 
 body {
-    height: 100%;
-    font-family: $defaultFont;
-    font-weight: $normalWeight;
-    color: $fontColor;
+  height: 100%;
+  font-family: $defaultFont;
+  font-weight: $normalWeight;
+  color: $fontColor;
 }
 
 #headerWrapper {
-    background-color: $secondaryColor;
-    color: white;
+background: white;
+  color: $secondaryColor;
+}
+header {
+  display: flex;
+  align-items: center;
+  padding: 1rem $gutter;
+  gap: 8px;
+  h1 {
+    display: block;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: $normalWeight;
+
+  }
 }
 
-header {
-    display: flex;
-    align-items: flex-end;
-    padding: 1rem $gutter;
-    gap: 8px;
-    h1 {
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: $normalWeight;
-        color: white;
-    }
-}
+/*Navigation stuff goes here*/
 
 #navWrapper {
-    background-color: $secondaryColor;
-    padding: .5rem;
+  background-color: $menuColor;
 }
 
 nav {
-    ul {
-        list-style-type: none;
-        padding: .75rem;
-        margin: 0;
-        display: flex;
-        flex: 1;
-        li {flex: 1;}
-    }
-    li.active {background-color: $primaryColor;}
-    a {
+
+  button{
+    padding: .5rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: rgba(255,255,255, 0.9);
+  }
+
+  ul {
+    display:none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-top: solid 1px rgba(255,255,255, 0.3);
+    li {
+      border-bottom: solid 1px rgba(255,255,255, 0.3);
+
+      a {
         display: block;
         padding: 0.75rem;
-        color: white;
+        color: black;
         text-align: center;
         text-decoration: none;
-        &:hover {color: lightsteelblue;}
+        font-size: 1.3rem;
+        font-weight: $boldWeight;
+        &:hover {
+          background-color: darken($menuColor, 8%);
+          color: white;
+        }
+      }
     }
+    li.active a {
+        color: white;
+        background-color: darken($menuColor, 12%);
+    }
+  }
+  ul.open {
+    display: block;
+  }
 }
 
-// begin the footer 
+.allcards {
+  padding: 0 $gutter;
+  section {
+    border:1px solid rgb(202, 202, 202);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+    img{
+      margin:0;
+      padding:0 0 1rem 0;
+    }
+
+    h2, p {
+      margin: 0;
+      padding: 1rem $gutter;
+    }
+h2 {
+  background-color:#ef4e8a;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+img {
+  width:100%;
+  height: auto;
+  display:block;
+}
+img.e2e{padding:0;}
+p {
+  font-style: italic;
+}
+a {
+  display: block;
+  background-color: #fd9abf;
+  padding: .75rem;
+  text-align: center;
+  margin: 0 3rem 1rem 3rem;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+}
+  }//end section
+}//end allcards}
+
+// begin the footer
+
 #footerWrapper {
-    background-color: $primaryColor; 
-    p {
-        padding: 0.5rem $gutter;
+  background: black;
+  color: $footerColor;
+}
+footer {
+    padding: 0.5rem $gutter;
+    section a{
+    text-decoration: none;
+    color: #ef4e8a;
+    &:hover{
+      color: white;
+    }
+    }
+    section.contact{
+      p{
+        font-size: 1.2rem;
+        margin: .5rem;
+        ion-icon{
+          color: white;
+          padding-right: 2px;
+        }
+      }
+    } //end of contact
+
+    section.social{
+      display: flex;
+      justify-content: center;
+      a{
+        display: block;
+        border: solid black 1px;
+        font-size: 2rem;
+        margin: .5rem;
+        padding: .5rem;
+        color:#ef4e8a;
+        &:hover{
+          color: white;
+        }
+      }
+    } //end of social
+
+    section.location{
+
+    } //end of location
+
+    p.legal{
         margin: 0;
-        color: white;
         font-weight: $lightWeight;
         text-align: center;
     }
 }
-
-
-  

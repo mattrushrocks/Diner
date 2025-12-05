@@ -1,4 +1,33 @@
-header, nav, main, footer {
+header, nav, main, footer{
     max-width: 60rem;
     margin: auto;
 }
+
+/*Navigation stuff goes here*/
+
+Nav{
+button{display:none;}
+ul, ul.open{
+    margin-left: 2vw;
+    display:flex;
+    border: none;
+    li{
+        border:none;
+    }
+
+} //end ul
+
+
+} //end nav
+
+.allcards {
+    section{
+        flex-basis: calc(33.333% - (($gutter*2)/3))
+    }
+}
+
+footer div {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+    

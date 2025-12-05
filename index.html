@@ -1,53 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="description" content="Start File">
+   <head>
+    <title>Dex's Daybreak Diner</title>
+    <meta name="description" content="Matt Rushforth's Start File">
     <meta name="author" content="Matt Rushforth">
 
-    <meta charset="UTF-8">
+
+
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="css/stylesmin.css" rel="stylesheet">
-    <!--fav icon info-->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="android-chrome-192x192.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link href="css/blueprint.css" rel="stylesheet">
+    <meta name="theme-color" content="#072f4b">
 
-    <title>Start File - Web Languages and Principles</title>
+
+    
+<!-- fav icon stuff -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+
 </head>
 <body>
-    <div id="headerWrapper">
-        <header>
-            <img src="images/logo.png" alt="blue logo with the HTML Symbol" width="40" height="40">
-            <h1>Principles of Web Languages</h1>
-        </header>
-    </div>
+    
+<div id="headerWrapper">
+    <header>
+        <figure class="logo">
+            <img src="images/logo-1x.png" alt="header-logo" width="45" height="50"
+            srcset="images/logo-1x.png 1x, images/logo-2x.png 2x, images/logo-3x.png 3x">
+        </figure>
+        <h1>Dex's Diner</h1>
+    </header>
+</div>
 
-    <div id="navWrapper">
-        <nav>
-            <ul>
-                <li class="active"><a href="#">Learn</a></li>
-                <li><a href="#">Practice</a></li>
-                <li><a href="#">Implement</a></li>
-            </ul>
-        </nav>
-    </div>
+<div id="navWrapper">
+    <nav >
+        <button id="hamburgerButton">&#9776;</button>
+        <ul id="primaryNav">
+            <li class="active"><a href="#">Menu</a></li>
+            <li><a href="#">Location</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+</nav>
+</div>
 
-    <div id="mainWrapper">
-        <main>
-            <h1>Learn</h1>
-        </main>
-    </div>
+<div id="mainWrapper">
+    <main>
+<h1>Menu Items</h1>
 
-    <div id="footerWrapper">
-        <footer>
-            <p>&copy; <span id="year">x</span> &bull; Matt Rushforth</p>
-        </footer>
-    </div>
+<div class="allcards">
+<section>
+    <img src="images/british-breakfast.webp" alt="British Breakfast" width="300" height="175">
+    <h2>Twin-Sun Scramble</h2>
+    <p>Fluffy eggs cooked to order with your choice of nerf sausage, crispy bantha bacon, or grilled veg-sticks. Served with hash meteors.</p>
+    <a href="#">Learn More</a>
+</section>
 
-    <script src="js/scripts.js"></script>
+
+    <section>
+        <img src="images/french-toast.webp" alt="French Toast" width="300" height="175">
+        <h2>Bantha Buttermilk Stack</h2>
+        <p>Tall stack of warm pancakes with melta-butter and sweet “blue-milk” syrup.</p>
+        <a href="#">Learn More</a>
+    </section>
+
+
+    <section>
+        <img src="images/Fruit-orange.webp" alt="Fruit and Orange Juice" width="300" height="175">
+        <h2>Mos Eisley Morning Plate</h2>
+        <p>Two eggs, bantha bacon, toast, and a side of asteroid-cut potatoes. No questions asked.</p>
+        <a href="#">Learn More</a>
+    </section>
+
+
+    <section>
+        <img src="images/sausage-potato.webp" alt="Sausage and Potato" width="300" height="175">
+        <h2>Outer Rim Reuben</h2>
+        <p>Stacked cured meat, star-kraut, and special sauce on grilled grain-loaf.</p>
+        <a href="#">Learn More</a>
+    </section>
+
+
+    <section>
+        <img src="images/steak-eggs.webp" alt="Steak and Eggs" width="300" height="175">
+        <h2>Blue Milk Shake</h2>
+        <p>Thick, sweet, classic.</p>
+        <a href="#">Learn More</a>
+    </section>
+
+
+
+</div>
+
+
+    </main>
+</div>
+
+<div id="footerWrapper">
+    <footer>
+<div>
+    <section class="contact">
+        <p><ion-icon name="person-outline"></ion-icon>  Matt Rushforth</p>
+        <p><ion-icon name="school-outline"></ion-icon>  Utah Valley University</p>
+        <p><a href="mailto:mattr@uvu.edu"><ion-icon name="mail-outline"></ion-icon>  mattr@uvu.edu</a></p>
+        <p><a href="https://mrushforthux.framer.website/"><ion-icon name="globe-outline"></ion-icon>  https://mrushforthux.framer.website/</a></p>
+        <p><a href="tel:8013008880"><ion-icon name="call-outline"></ion-icon>  801 300 8880</a></p>
+    </section>
+
+    <section class="social">
+        <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-pinterest"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+    </section>
+
+    <section class="location">
+        <address> Freedom BLVD <br> Provo, Utah <br> 84601</address>
+    </section>
+
+</div>
+
+
+
+   
+        <p class="legal">&copy; <span id="year">x</span> &bull; Matt Rushforth</p>
+    </footer>
+</div>
+<script src="js/scripts.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
