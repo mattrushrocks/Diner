@@ -472,6 +472,56 @@ nav ul li.active a {
   color: #FFD700;
   background-color: rgba(255, 215, 0, 0.15);
 }
+/* Hamburger button styling */
+#hamburgerButton {
+  position: relative;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #FFD700;
+}
+
+#hamburgerButton::before,
+#hamburgerButton::after,
+#hamburgerButton span {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #FFD700;
+  transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+}
+
+#hamburgerButton::before {
+  top: 0;
+}
+
+#hamburgerButton span {
+  top: 9px;
+}
+
+#hamburgerButton::after {
+  top: 18px;
+}
+
+/* transform into X when open */
+#hamburgerButton.open::before {
+  transform: rotate(45deg);
+  top: 9px;
+}
+
+#hamburgerButton.open::after {
+  transform: rotate(-45deg);
+  top: 9px;
+}
+
+#hamburgerButton.open span {
+  opacity: 0;
+}
+
 
 .allcards {
   padding: 0 16px;
